@@ -40,9 +40,7 @@
                                 />
         <RadzenColorPicker @bind-Value=@Seed 
         Change=@(c => {
-                           var trimmed = Seed.Trim('r', 'g', 'b', 'a', '(', ')');
-                           var rgb = trimmed.Split(',', ' ').Where(s => !string.IsNullOrWhiteSpace(s)).Select(s => byte.Parse(s)).ToArray();
-                           csg.Seed = new ColorSequenceGenerator.RGB(rgb[0], rgb[1], rgb[2]);
+                           csg.Seed = Seed;
                       }
             )/>
     </ExtraControls>
