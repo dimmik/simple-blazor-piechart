@@ -31,7 +31,7 @@
             </td>
         }
     </tr>
-    @if (ExtraControls is not null)
+    @if (ExtraControls is not null && RenderExtraControls)
     {
         <tr>
             <td colspan="@(ShowText ? "2" : "1")">
@@ -57,6 +57,9 @@
     [Parameter]
     public string Width { get; set; } = "160px";
     private string Height => Width; // aspect ratio = 1
+
+    [Parameter]
+    public bool RenderExtraControls { get; set; } = true;
 
     private List<(int, string, string)> AnglesColorsAndNames { get; set; } = new();
     protected override void OnParametersSet()

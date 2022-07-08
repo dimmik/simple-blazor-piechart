@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32611.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleBlazorPieChart", "SimpleBlazorPieChart.csproj", "{A1668CB3-25E9-42E5-8048-CECB91A6DF4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleBlazorPieChart", "SimpleBlazorPieChart\SimpleBlazorPieChart.csproj", "{A1668CB3-25E9-42E5-8048-CECB91A6DF4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieChartExample.Server", "..\PieChartExample\Server\PieChartExample.Server.csproj", "{11D10161-0C29-494D-9A14-473F86799DFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieChartExample.Server", "PieChartExample\Server\PieChartExample.Server.csproj", "{11D10161-0C29-494D-9A14-473F86799DFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieChartExample.Client", "..\PieChartExample\Client\PieChartExample.Client.csproj", "{62FA7519-F1C4-4EB0-A711-F1F0C04D389C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieChartExample.Client", "PieChartExample\Client\PieChartExample.Client.csproj", "{62FA7519-F1C4-4EB0-A711-F1F0C04D389C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieChartExample.Shared", "..\PieChartExample\Shared\PieChartExample.Shared.csproj", "{3CE99A68-627D-40B7-9378-96821CAEDB8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieChartExample.Shared", "PieChartExample\Shared\PieChartExample.Shared.csproj", "{3CE99A68-627D-40B7-9378-96821CAEDB8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
