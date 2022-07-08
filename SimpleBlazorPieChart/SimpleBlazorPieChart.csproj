@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <PackageId>SimpleBlazorPieChart</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Dmitry Andrievsky</Authors>
+    <Company>In Person</Company>
+    <Title>Simple Blazor Pie Chart</Title>
+    
+    <PackageDescription>
+        Simple Pie Chart component
+    </PackageDescription>
+    <PackageTags>Pie;Chart;PieChart</PackageTags>
+    
+    <PackageProjectUrl>https://github.com/dimmik/simple-blazor-piechart</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dimmik/simple-blazor-piechart</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ColorSequenceGenerator" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>
