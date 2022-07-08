@@ -14,7 +14,7 @@
     <PackageDescription>
         Simple Pie Chart component
     </PackageDescription>
-    <PackageTags>Pie;Chart;PieChart</PackageTags>
+    <PackageTags>Pie;Chart;PieChart;Blazor</PackageTags>
     
     <PackageProjectUrl>https://github.com/dimmik/simple-blazor-piechart</PackageProjectUrl>
     <RepositoryUrl>https://github.com/dimmik/simple-blazor-piechart</RepositoryUrl>

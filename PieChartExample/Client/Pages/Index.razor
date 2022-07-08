@@ -1,7 +1,7 @@
 ﻿@page "/"
 @using SimpleBlazorPieChart
 @using Radzen.Blazor
-
+<h1>Pie Chart Usage Examples</h1>
 <h2>Pie Chart Default</h2>
 <SimplePieChart 
     Data=@(
@@ -10,9 +10,7 @@
             ("Consulting", 12000), 
             ("Audit", 8000), 
             ("Employee Salary", 15000) })
-    >
-
-</SimplePieChart>
+    />
 <h2>Pie Chart no text</h2>
 <SimplePieChart Data=@(
                 new[] {
@@ -21,9 +19,8 @@
                 ("Audit", 8000),
                 ("Employee Salary", 15000) })
                 ShowText=@false
-    >
+    />
 
-</SimplePieChart>
 <h2>Pie Chart with additional controls</h2>
 <SimplePieChart Data=@(
                 new[] {
