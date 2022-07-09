@@ -46,10 +46,10 @@
     public IEnumerable<(string name, int amount)> Data { get; set; } = new List<(string, int)>();
 
     [Parameter]
-    public ColorSequenceGenerator ColorSequenceGenerator { get; set; } = new();
+    public IColorSequenceGenerator ColorSequenceGenerator { get; set; } = new CSG();
 
     [Parameter]
-    public RenderFragment<ColorSequenceGenerator> ExtraControls { get; set; }
+    public RenderFragment<IColorSequenceGenerator> ExtraControls { get; set; }
 
     [Parameter]
     public bool ShowText { get; set; } = true;
