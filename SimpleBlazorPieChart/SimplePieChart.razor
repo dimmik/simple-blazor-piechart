@@ -7,10 +7,10 @@
         width: 100%;
         aspect-ratio: 1;
         background: conic-gradient(@(string.Join(", ",
-                GetFromTo(AnglesColorsAndNames.Select(acn => acn.Item1)) // (0, 8), (8, 17), (17, 95) ...
+                GetFromTo(AnglesColorsAndNames.Select(acn => acn.Item1)) // (0, 800), (800, 1700), (1700, 9500) ...
                 .Zip(AnglesColorsAndNames)
                 .Select(acn => new {Color=acn.Second.Item2, FromDeg=acn.First.Item1, ToDeg=acn.First.Item2})
-                .Select(acn => $"{acn.Color} {acn.FromDeg}deg {acn.ToDeg}deg")))
+                .Select(acn => $"{acn.Color} {(acn.FromDeg * 1.0 / 100).ToString("0000.00", nfi)}deg {(acn.ToDeg * 1.0 / 100).ToString("0000.00", nfi)}deg")))
             );
     "></div>
 
@@ -22,7 +22,7 @@
                 {
                     var nm = acn.Item3;
                     var color = acn.Item2;
-                    var perc = acn.Item1 * 100.0 / 360;
+                    var perc = acn.Item1 * 100.0 / 36000;
                     <div>
                         <span style="width:7px;background-color:@color">&nbsp;&nbsp;&nbsp;</span><b>&nbsp;@nm</b> 
                         @($"{perc:0.0}%")
@@ -61,6 +61,8 @@
     [Parameter]
     public bool RenderExtraControls { get; set; } = true;
 
+    static System.Globalization.NumberFormatInfo nfi = new() { NumberDecimalSeparator = "." };
+
     private List<(int, string, string)> AnglesColorsAndNames { get; set; } = new();
     protected override void OnParametersSet()
     {
@@ -89,13 +91,13 @@
         if (!Data.Any()) Data = new[] { ("n/a", 0) };
         var total = Data.Select(i => i.amount).Sum();
         var a = Data
-            .Select(i => (int)((i.amount * 360.0 / total)))
+            .Select(i => (int)((i.amount * 36000.0 / total)))
             .ToList();
-        if (a.Sum() < 360)
+        if (a.Sum() < 36000)
         {
             if (a.Any())
             {
-                a[a.IndexOf(a.Max())] = a.Max() + (360 - a.Sum());
+                a[a.IndexOf(a.Max())] = a.Max() + (36000 - a.Sum());
             }
             else
             {
