@@ -89,9 +89,13 @@
     private IEnumerable<(int, string, string)> GetAnglesColorsAndNames()
     {
         if (!Data.Any()) Data = new[] { ("n/a", 0) };
-        var total = Data.Select(i => i.amount).Sum();
+        var total = Data.Select(i => Math.Abs(i.amount)).Sum();
+        if (total == 0){ // all zeroes.
+            Data = Data.Select(d => ($"{d.name} [=0]", 1));
+            total = Data.Select(i => Math.Abs(i.amount)).Sum();
+        }
         var a = Data
-            .Select(i => (int)((i.amount * 36000.0 / total)))
+            .Select(i => (int)((Math.Abs(i.amount) * 36000.0 / total)))
             .ToList();
         if (a.Sum() < 36000)
         {

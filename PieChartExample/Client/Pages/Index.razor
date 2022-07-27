@@ -4,14 +4,19 @@
 @using Radzen.Blazor
 <h1>Pie Chart Usage Examples</h1>
 <h2>Pie Chart Default</h2>
-<SimplePieChart 
-    Data=@(
-        new[] {
+<SimplePieChart Data=@(
+                new[] {
                 ("Product Licenses", 5435),
                 ("Consulting", 12127),
                 ("Audit", 8036),
-                ("Employee Salary", 15986) })
-    />
+                ("Employee Salary", 15986) }) />
+<h2>Pie Chart All Zeroes (2022-07-28 issue)</h2>
+<SimplePieChart Data=@(
+                new[] {
+                ("Product Licenses", 0),
+                ("Consulting", 0),
+                ("Audit", 0),
+                ("Employee Salary", 0) }) />
 <h2>Pie Chart no text</h2>
 <SimplePieChart Data=@(
                 new[] {
