@@ -20,4 +20,4 @@ jobs:
         run: dotnet publish -c Release -o . SimpleBlazorPieChart/SimpleBlazorPieChart.csproj
         
       - name: Push To Nuget
-        run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_KEY }} -s https://api.nuget.org/v3/index.json
+        run: dotnet nuget push **/*.nupkg -k ${{ secrets.NUGET_KEY }} -s https://api.nuget.org/v3/index.json
