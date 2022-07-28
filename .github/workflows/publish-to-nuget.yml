@@ -17,7 +17,7 @@ jobs:
 
       # Publish
       - name: Package
-        run: dotnet pack -c Release -o . PieChartExample/PieChartExample.csproj
+        run: dotnet pack -c Release -o . SimpleBlazorPieChart/SimpleBlazorPieChart.csproj
         
       - name: Publish
         run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_KEY }} -s https://api.nuget.org/v3/index.json
