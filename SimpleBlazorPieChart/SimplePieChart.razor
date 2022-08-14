@@ -67,6 +67,9 @@
     public string SubcatDelim { get; set; } = "/";
 
     [Parameter]
+    public string SubcatMoreSign { get; set; } = " [+]";
+
+    [Parameter]
     public string Width { get; set; } = "160px";
     private string Height => Width; // aspect ratio = 1
 
@@ -111,7 +114,7 @@
             data = data
                 .Select(d => (d.name.Split(SubcatDelim).Select(n => n.Trim()).ToArray()[0], d.amount)) // ("a / b", 10), ("a /c", 20) => ("a", 10), (a, 20)
                 .ToLookup(k => k.Item1)
-                .ToDictionary(k => k.Key, v => v.Select(vv => vv.amount).Sum())
+                .ToDictionary(k => $"{k.Key}{(k.Count() > 1 ? SubcatMoreSign : "")}", v => v.Select(vv => vv.amount).Sum())
                 .Select(kv => (kv.Key, kv.Value))
                 ;
             ThereAreSubcatsAtAll = data.Count() < Data.Count();
