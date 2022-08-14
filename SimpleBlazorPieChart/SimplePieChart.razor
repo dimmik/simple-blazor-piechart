@@ -28,7 +28,7 @@
                         @($"{perc:0.0}%")
                     </div>
                 }
-                @if (ShowSubcategories)
+                @if (ShowSubcategories && AreThereSubcatsAtAll)
                 {
                     <span style="cursor:pointer" @onclick=@(() => {AggregateCats = !AggregateCats; UpdateColors();})>
                         <u>@(AggregateCats ? "Show" : "Hide") details</u>
@@ -100,6 +100,7 @@
         }
     }
     private bool AggregateCats;
+    private bool AreThereSubcatsAtAll = false;
     private IEnumerable<(string name, int amount)> GetData()
     {
         var data = Data;
@@ -113,6 +114,7 @@
                 .ToDictionary(k => k.Key, v => v.Select(vv => vv.amount).Sum())
                 .Select(kv => (kv.Key, kv.Value))
                 ;
+            AreThereSubcatsAtAll = data.Count() < Data.Count();
         }
         return data;
     }
