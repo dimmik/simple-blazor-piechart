@@ -10,6 +10,20 @@
                 ("Consulting", 12127),
                 ("Audit", 8036),
                 ("Employee Salary", 15986) }) />
+<h2>Pie Chart Sub Cats</h2>
+<SimplePieChart Data=@(
+                new[] {
+                ("IT / Product Licenses", 5435),
+                ("Financial / Consulting", 12127),
+                ("IT / Audit", 8036),
+                ("Management / Employee Salary", 15986),
+                ("Management / Golden Parachute", 8000),
+                ("Financial / Missing", 20000),
+                ("Just Trash", 10000),
+                })
+                ShowSubcategories=@true
+                SubcatDelim="/"
+                />
 <h2>Pie Chart All Zeroes (2022-07-28 issue)</h2>
 <SimplePieChart Data=@(
                 new[] {
