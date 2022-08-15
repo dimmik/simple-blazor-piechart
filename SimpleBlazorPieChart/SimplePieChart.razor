@@ -32,6 +32,10 @@
                         }
                     </div>
                 }
+                @if (ShowAbsoluteNumbers)
+                {
+                    <div>Total: <b>@AbsoluteNumbers.Values.Sum().ToString("N0", nf)</b></div>
+                }
                 @if (ShowSubcategories && ThereAreSubcatsAtAll)
                 {
                     <span style="cursor:pointer" @onclick=@(() => {AggregateCats = !AggregateCats; UpdateColors();})>

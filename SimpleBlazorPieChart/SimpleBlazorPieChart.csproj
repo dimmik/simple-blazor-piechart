@@ -6,7 +6,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
     <PackageId>SimpleBlazorPieChart</PackageId>
-    <Version>1.0.11</Version>
+    <Version>1.0.12</Version>
     <Authors>Dmitry Andrievsky</Authors>
     <Company>In Person</Company>
     <Title>Simple Blazor Pie Chart</Title>
