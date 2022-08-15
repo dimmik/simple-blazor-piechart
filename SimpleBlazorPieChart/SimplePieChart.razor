@@ -26,6 +26,10 @@
                     <div>
                         <span style="width:7px;background-color:@color">&nbsp;&nbsp;&nbsp;</span><b>&nbsp;@nm</b> 
                         @($"{perc:0.0}%")
+                        @if (ShowAbsoluteNumbers)
+                        {
+                            <b>&nbsp;[@(AbsoluteNumbers.ContainsKey(nm) ? AbsoluteNumbers[nm].ToString("N0", nf) : -1)]</b>
+                        }
                     </div>
                 }
                 @if (ShowSubcategories && ThereAreSubcatsAtAll)
@@ -61,6 +65,11 @@
     public bool ShowText { get; set; } = true;
 
     [Parameter]
+    public bool ShowAbsoluteNumbers { get; set; } = false;
+    private Dictionary<string, int> AbsoluteNumbers = new();
+    private System.Globalization.NumberFormatInfo nf = new() { NumberGroupSeparator = " " };
+
+    [Parameter]
     public bool ShowSubcategories { get; set; } = false;
 
     [Parameter]
@@ -92,7 +101,6 @@
     {
         return ColorSequenceGenerator.ColorSequence().Select(c => c.ToString());
     }
-
     public IEnumerable<(int, int)> GetFromTo(IEnumerable<int> seq)
     {
         int i = 0;
@@ -122,6 +130,10 @@
             {
                 data = Data;
             }
+        }
+        if (ShowAbsoluteNumbers)
+        {
+            AbsoluteNumbers = data.ToDictionary(k => k.name, v => v.amount);
         }
         return data;
     }
