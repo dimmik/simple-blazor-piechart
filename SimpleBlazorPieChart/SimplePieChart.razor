@@ -124,9 +124,9 @@
         if (AggregateCats)
         {
             data = data
-                .Select(d => (d.name.Split(SubcatDelim).Select(n => n.Trim()).ToArray()[0], d.amount)) // ("a / b", 10), ("a /c", 20) => ("a", 10), (a, 20)
+                .Select(d => (d.name.Split(SubcatDelim).Select(n => n.Trim()).ToArray()[0], d.amount, d)) // ("a / b", 10), ("a /c", 20) => ("a", 10), (a, 20)
                 .ToLookup(k => k.Item1)
-                .ToDictionary(k => $"{k.Key}{(k.Count() > 1 ? SubcatMoreSign : "")}", v => v.Select(vv => vv.amount).Sum())
+                .ToDictionary(k => k.Count() > 1 ?  $"{k.Key}{SubcatMoreSign}" : k.First().d.name, v => v.Select(vv => vv.amount).Sum())
                 .Select(kv => (kv.Key, kv.Value))
                 ;
             ThereAreSubcatsAtAll = data.Count() < Data.Count();
