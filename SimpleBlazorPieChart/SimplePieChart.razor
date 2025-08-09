@@ -1,22 +1,22 @@
 ﻿@using ColorSequenceGenerator
-<div style="display: flex;">
+<div style="display: inline-flex;">
         <div style="width: @Width; height: @Height; padding: 5px; vertical-align: top;">
             <div style="
-        border-radius: 100%;
-        width: 100%;
-        aspect-ratio: 1;
-        background: conic-gradient(@(string.Join(", ",
-                GetFromTo(AnglesColorsAndNames.Select(acn => acn.Item1)) // (0, 800), (800, 1700), (1700, 9500) ...
-                .Zip(AnglesColorsAndNames)
-                .Select(acn => new {Color=acn.Second.Item2, FromDeg=acn.First.Item1, ToDeg=acn.First.Item2})
-                .Select(acn => $"{acn.Color} {(acn.FromDeg * 1.0 / 100).ToString("0000.00", nfi)}deg {(acn.ToDeg * 1.0 / 100).ToString("0000.00", nfi)}deg")))
-            );
-    "></div>
+                border-radius: 100%;
+                width: 100%;
+                aspect-ratio: 1;
+                background: conic-gradient(@(string.Join(", ",
+                    GetFromTo(AnglesColorsAndNames.Select(acn => acn.Item1)) // (0, 800), (800, 1700), (1700, 9500) ...
+                    .Zip(AnglesColorsAndNames)
+                    .Select(acn => new {Color=acn.Second.Item2, FromDeg=acn.First.Item1, ToDeg=acn.First.Item2})
+                    .Select(acn => $"{acn.Color} {(acn.FromDeg * 1.0 / 100).ToString("0000.00", nfi)}deg {(acn.ToDeg * 1.0 / 100).ToString("0000.00", nfi)}deg")))
+                );
+            "></div>
 
         </div>
         @if (ShowText)
         {
-            <div style="padding: 5px; font-size: x-small; vertical-align:top;">
+            <div style="padding: 5px; font-size: x-small; vertical-align:top; text-align: left;">
                 @foreach (var acn in AnglesColorsAndNames)
                 {
                     var nm = acn.Item3;
