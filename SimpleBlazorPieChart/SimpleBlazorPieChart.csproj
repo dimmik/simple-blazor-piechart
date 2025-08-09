@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <IsPackable>true</IsPackable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
     <PackageId>SimpleBlazorPieChart</PackageId>
-    <Version>1.0.14</Version>
+    <Version>1.0.15</Version>
     <Authors>Dmitry Andrievsky</Authors>
     <Company>In Person</Company>
     <Title>Simple Blazor Pie Chart</Title>
